@@ -3,11 +3,11 @@ language: generic
 services:
   - docker
 
-  before_install:
-    - docker build -t skgeorge/react-test -f ./client/Dockerfile.dev ./client
+before_install:
+  - docker build -t skgeorge/react-test -f ./client/Dockerfile.dev ./client
 
-  script:
-    - docker run -e CI=true skgeorge/react-test npm test
+script:
+  - docker run -e CI=true skgeorge/react-test npm test
 after_success:
   - docoker build -t skgeorge/multi-client ./client
   - docoker build -t skgeorge/multi-nginx ./nginx
