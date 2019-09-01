@@ -7,7 +7,7 @@ services:
 before_install:
   - docker build -t skgeorge/react-test -f ./client/Dockerfile.dev ./client
 
-script:  
+script:
   - docker run -e CI=true skgeorge/react-test npm test
 
 
