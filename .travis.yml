@@ -1,6 +1,5 @@
 sudo: required
 language: generic 
-chmod +x node_modules/.bin/react-scripts
 services:
   - docker
 
