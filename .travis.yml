@@ -1,4 +1,5 @@
 sudo: required
+language: generic 
 services:
   - docker
 
@@ -6,8 +7,7 @@ services:
     - docker build -t skgeorge/react-test -f ./client/Dockerfile.dev ./client
 
   script:
-    - docker run skgeorge/react-test npm test -- --coverage
-
+    - docker run -e CI=true skgeorge/react-test npm test
 after_success:
   - docoker build -t skgeorge/multi-client ./client
   - docoker build -t skgeorge/multi-nginx ./nginx
